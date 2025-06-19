@@ -1,0 +1,305 @@
+
+FILE
+---------
+
+1	To create a new file
+
+
+		cat > bob.txt
+			your data
+			is here
+		^c to stop typing and save teh file
+		- it will always replace it with a new file
+		
+
+2	To view the contents of a file
+
+		 cat bob.txt
+
+3	copy a file
+		cp currentFile   newFile
+
+4.	rename a file
+		mv oldname newname
+
+5.	move a file
+		mv oldname newDestinationFolder
+
+6. 	remove a file
+
+		rm filename
+		rm -i filename [ removes with user interaction ]
+		rm -f filename [ remove with force ]
+		
+
+	The international standard directory structure for unix
+	
+			This PC | My Computer
+			 |
+	----------------------------------------------------
+	|	|	|	  |		|
+	C:	D:	Documents Downloads	RecycleBin ... 
+	|
+	program files
+	program files x86
+	Windows
+	windows\system32
+	temp
+	Users
+	Users\amit
+
+	
+
+top->				/ <-- the root directory | slash
+				|
+	--------------------------------------------------------------------
+	|	|	|	|	|	|	|	|	|  |
+1	bin	sbin	usr	etc	dev	home	proc	lib   var  opt
+	|20	|50	|	|		|	 |	|	|
+	|    ifconfig	|	*.conf	 --------------- pids  .so   variable 	
+	ls	-----------------	 |	 |     | are here    da	
+	date	|		|	harshil pooja mansi	      logs
+		bin		sbin	|			      spool
+		|300		|100   files	 
+		cal		fdisk  are 
+					here	
+	jack	jill	jim	jane
+	|	|	|	|
+	/bin	/sbin	/bin	/bin
+			/sbin	/sbin
+				/usr/bin
+				/usr/sbin
+whic
+1.  /
+2.  /bin	- binaries - executable programs
+3.  /sbin	- system binaries - reserved for the unix admin,ie root user
+4.  /usr - unix system resource
+5.  /usr/bin
+6.  /usr/sbin
+7.  /etc - editable text configuration
+8.  /dev - device drivers
+9.  	in unix everything is a file
+		even devices are files, processes are also files
+
+
+	
+	mounting process
+		/
+		|
+	---------------
+	|
+	dev
+	|
+	sda0 <-- complete hard drive
+	sda1 <-- c:
+	sda2 <-- d:
+	sdb
+	sdc
+	sdd
+
+
+
+10. /home - to cater all users home directories
+11. /proc - all processes as files
+12. /lib  - libraries - .so [ shared objects, or dlls in windows]
+13. /var - variable data like spool, logs etc
+14. /opt - optional software - Program files in windows
+		
+		/
+		|
+		opt
+		|
+	------------------	
+	|	|	|
+	java	oracle	adobe
+	|	|	 |
+	bin	bin	bin
+	|	|	 |
+	javac	sqlplus acro
+	java
+
+
+
+
+		math.c
+		|50 funs
+		compile
+		|
+		math.obj/math.o
+		|
+	-------------------
+	|		|
+	|		dlls
+	|		|
+	|		math.dll/math.so
+	|		| 50 funs are here
+	X		STORED on the drive
+
+	excel.c
+	excel.obj
+	excel.exe <-- RAM
+
+
+
+
+
+
+
+
+
+	excel.exe
+
+		grid of columsn and rows
+
+		10
+		20
+		30
+		=sum(a1..a3)
+
+
+Vi editor
+-----------
+
+
+	vi filename
+		|
+		|
+		default mode known as THE COMMAND MODE
+					|Esc
+					|
+			------------------------------
+			|			|	
+			[i]			[:]
+			|			|
+			insert mode		wq
+
+		1. vi peter.txt
+		2. press i
+		3. data here
+		4. esc
+		5. :wq - write and quit vi 
+
+
+		if vi is started without filename
+
+		1. vi
+		2. press i
+		3. data here
+		4. esc
+		5. :wq filename - save AS
+
+
+
+		visual improved editor = vim
+
+
+
+	file links
+	------------
+		hard link 	and 	soft link (short cut in windows)
+		|			|
+		shared file		a short cut to the longer
+		across			path of a file/directory
+		folders
+
+			/
+			|
+			User
+			|
+			admin
+			|
+			ofss2025
+			|
+			world
+			|
+		-----------------
+		|		|
+		asia		europe
+		|		|
+	------------		---------
+	|				|
+	india				england
+	|				|
+	mumbai				london
+	|
+	ln -s /Users/admin/ofss2025/world/europe/england/london uk
+	uk
+	cd uk
+
+
+
+	hard link
+	|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DIRECTORY COMMANDS
+---------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
