@@ -291,9 +291,260 @@ Vi editor
 DIRECTORY COMMANDS
 ---------------------
 
+	done
+
+links
+----------
+	done
+
+
+	filters
+
+		wc
+			wc -l
+			wc -c
+			wc -w	
+		head
+			default 10 lines
+			head -n 5 filename
+
+		tail
+		
+			tail -n 5 filename
+
+		
+
+		cut 
+			to cut the data vertically
+			default delimiter is TAB
+
+			cut -f 1,2,3 sal.lst
+
+			cut -d "|" -f 1,2,3 emp.lst
+
+				-d custom delimiter specified
+
+		grep
+
+			Global Regular Expression Print	
+			
+			grep sumit emp.lst --color
+			
+			ag a r   wal
+			ag r a   wal
+			ag g a r wal
+			12 3 4 5 678
+
+		        ag[arg][ra]r*wal 
+			12  3   4  5 678
+
+		grep -i to ignore the case
+
+			show all the directories from ls -l
+			ls -l | grep ^d --color
+
+
+			shows all the process having d as the last letter
+			as the daemon processes
+
+			ps -ef | grep d$ --color  [ its not $d ]
 
 
 
+
+
+
+			pragathi
+			pragati
+
+			swami
+			samy
+
+			choudhari
+			choudhary
+			chowdhari
+			chowdharee
+		
+		egrep
+			grep -e sharma -e gupta -e manager emp.lst --color
+			egrep "sharma|gupta|manager" emp.lst --color
+
+		fgrep
+			grep "g.m." emp.lst
+			will show g.m. and gome, game, gimi
+
+			but 
+			fgrep "g.m." emp.lst 
+				will search the string as it is
+				g.m. is only searched 
+
+
+		
+		sed = stream editor
+
+			to perform the CRUD operation on the file
+			without opening the file in an interactive mode
+
+			
+			Create
+			read
+			update
+			and delete
+
+	
+		CREATE
+		
+			sed '$a\
+				5555|vishal|trainer|training|12/Jun/99|9383
+			' emp.lst
+
+		
+		READ
+
+			by line number
+
+			sed -n '5p' emp.lst
+		
+			by pattern
+		
+			sed -n '/sharma/p' emp.lst
+
+
+		UPDATE
+			sed 's/admin/ADMIN/p' emp.lst
+
+		DELETE
+
+			sed '5,10d' emp.lst
+
+			5 to 10th all 
+
+			cat -n emp.lst | sed -e '5d' -e '7d' -e '10d'
+	
+	
+	Permissions
+	-------------
+
+		there are 3 types of users
+
+			user - owner of the file/directory
+			
+			group - collection of users in a relation
+				primary group - assigned to you at login
+				secondary group - practical life				
+				family,  friends,  mutualfriends
+				|||||	 |||||||	|||	
+				umdsb    iiiiiii
+
+			u user
+			m mother
+			d dad
+			s sister
+			b brother
+	
+				bus, train,  seminar,
+				restaurant
+				cafe
+
+
+			other
+				neither the user nor the group member
+				house maid is other
+		
+
+
+				
+		u g o
+
+		+ grant
+		- revoke
+
+
+		r w x
+
+				user		group		other
+
+				FILE		DIRECTORY
+				wallet		wardrobe
+
+		read		cat		ls		-
+
+		write		vi		cat,rm,cat	-
+						vi,cp,mv
+			
+		execute		carry		cd		-
+
+
+
+		chmod   userType+-permissionType     filelist
+		
+		chmod u+r  wallet.txt
+		chmod ug+r wallet.txt
+		chmod o+r,u-r,g-r wallet.txt
+		
+		chmod ugo+rwx wardrobe
+
+
+		  uuu ggg ooo   user   group   modification time
+		  ||| ||| |||	 |      |		|	
+		- rw- r-- r--  1 admin  staff  321 Jun 19 17:17 sal.txt
+		|	       |		|		 |	
+		type       linkcount		size		file/directory
+
+		- file
+		d directory
+		l link
+	
+
+
+		:wq - write and exit
+
+		:q!  - discard changes and exit vi
+		
+		
+		vi script.sh
+			cal
+			date
+			ls
+			who am i
+		save the above file
+
+		./script.sh
+			permission denied
+
+		chmod u+x script.sh
+		
+		./script.sh
+			program is executed
+
+
+
+
+
+		
+
+
+			
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+		
 
 
 
