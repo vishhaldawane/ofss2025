@@ -1,0 +1,150 @@
+
+
+
+
+
+		Java Programming Language
+			|
+	---------------------------------
+	|		|		|
+	JSE		JEE		JME
+	|		|		|
+  Core Java	   Enterprise		Micro/Android [ mobile apps ]
+	|		   |
+Language fundas		-----------
+OOPS concepts		|	  |
+packages		Web	EJB
+isA/hasA/		|	  |
+usesA/produceA		Servlets  --------------------------------
+Exception handling	JSP	  |		|		|
+MultiThreading		React	Session		Entity		Message
+Generics/		Angular	 |SPRING	|Hibernate/JPA    | JMS
+				 |		|		  |
+Collections		-----------------	--------	----------
+File handling		|1		|2	|3	|4	|5	|6
+Jdbc			Stateless   Stateful	BMP	CMP	SMS	Mail
+						bean	Hibernate/JPA/EclipseLink
+						managed
+						persistence [ store the object state on teh DB ]
+			bookmyshow.com
+			makemytrip.com
+			amazon.com
+			|
+			goair.com
+			|
+			mumbai to dubai
+			31st July 2025
+
+
+
+
+	OOPS concept
+	-----------------
+
+		Object Oriented programming system
+
+	
+	POPS = procedure oriented
+
+			---------------------------		
+			|	global data	|
+			|			|
+			|fun1() 	fun2()	|	fun3()
+			-------------------------
+				global data
+
+				main
+
+			fun4()		fun5()		fun6()
+
+
+		gents tailor = make a shirt
+			 |
+			customer = cloth
+
+		1. by observing the requirement 
+			full/half shirt / take measurement of the cloth
+				2.25 meter 
+				2.50
+
+
+		2. measure the body of the customer = measure tape [ READING ]
+		3. mark it on the paper = pencil/pen + paper [ 	WRITING ]
+		4. starts making a cutting diagram on the cloth as per the measurements taken
+			on the paper in step 3 [ DRAWING with chalk ]
+
+		5. cutting as per teh cutting digram - scissor
+			[ no need to refer teh measurement numbers from the paper ]
+		6. stitching using the sewing machine 
+		7. trial 
+
+
+		POPS = PROCUDURE <-- DATA - TOP TO BOTTOM
+
+		OOPS = DATA <--------PROCEDURE - BOTTOM TO TOP
+	
+
+
+		
+
+	Naming convention
+
+
+			1. ClassName - class BankAccount <- PascalCase
+
+			2. fieldName - int accountNumber
+				       String socialSecurityNumber;
+
+			3. methodName - void setLookAndFeel() { }
+
+					void godIsNowhere() { }
+
+					void godIsNowHere() { }
+
+			4. CONSTANTS	- int MAX=10;   int SPEED_OF_LIGHT=186000;
+				
+			5. packages    - java.lang	myproject.oracle.bank
+
+
+			below naming convention is horrible
+			|
+			package MyOracle.BankProject;
+	
+			class bankAccount
+			{
+				float AccountBALANCE;
+
+
+				void WithdrawCash() {
+				}
+			}
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
