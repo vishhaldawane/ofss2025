@@ -1,4 +1,4 @@
-class Person {
+class Person implements Reactive {
 	char gender;	String name;	int age;
 	
 	public Person(char gender, String name, int age) {
@@ -9,5 +9,9 @@ class Person {
 		System.out.println("Gender : "+gender);
 		System.out.println("Name   : "+name);
 		System.out.println("Age    : "+age);
+	}
+	
+	public void react() {
+		System.out.println("Person is reacting....");
 	}
 }
