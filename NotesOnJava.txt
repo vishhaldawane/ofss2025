@@ -123,13 +123,496 @@ Jdbc			Stateless   Stateful	BMP	CMP	SMS	Mail
 
 
 
+	this.  <-- refer the data members / fields / methods 
+
+	this() <-- invoke a ctor from the current class ctor
+
+	super. <-- refer to the nearest super class member/function
+
+	super() <-- invoke a ctor from the nearest super class 
+			by default this is the first statement
+			of every constructor
+
+	----------------------------------------
+
+
+		Packages = to organize the concerned classes into a folder
+
+
+					bank
+					|
+			------------------------------------------
+			|		|			|
+			account		transfer		statement
+			|		|			|
+			BankAccount	FundTransferService	MonthlyStatement
+			SavingsAccount  QuickTransferService	WeeklyStatement
+			CurrentAccount	ImpsService		QuarterlyStatement
+								YearlyStatement
+
+		bank.acc
+		bank.transfer
+		bank.statement
+
+	1				jungle
+					|  Human, Woman, Kid
+					|
+			-----------------------------------------------------
+			|		|		|		|
+	2		cave		river		tree		farm
+			|		|		|		|
+			Tiger		Frog		Parrot		House
+			Bee		Fish		Monkey		   
+			Beehive				
+			WhiteTiger
+
+			A - d
+			B - p
+			C - pro
+			D - pu
+
+
+	access specifiers = public protected private [default]
+
+	data qualifiers = final, static, abstract
+
+		final				static				abstract
+-------------------------------------------------------------------------------------------------
+		a field cannot			shared copy
+		be modified/changed		of a variable
+field		Its a constant			across the  
+		final float PI=3.14f;		objects of the
+		PI=3.18f;//error		class
+-------------------------------------------------------------------------------------------------
+		a method which cannot		can be used to
+		be overridden			refer other 
+method						static members
+
+
+-------------------------------------------------------------------------------------------------
+		a class that cannot be
+class		extended
+		OR cannot be subclassed
+		final class A { }
+		class B extends A {} //error
+-------------------------------------------------------------------------------------------------
+			  +----------------+
+			 /		  /|
+			/	         / |
+			+---------------/ <-----how is it
+			|    SCREEN     |  |
+			|   What is it? |  +
+			|      printSlot|<----- how the cash is dispensed
+			| cash slot	| /	or how the print is	
+			|		|/	printed
+			+---------------+ how the oauth works there	
+				ATM
+OOPS Concepts
+----------------
+
+	1. Abstraction
+		- it is the "what is?" part of an object
+		- what is an ATM object?
+			- dispense cash
+		- hiding the complex details of an object
+		a) data abstraction
+			how much cash is there in the ATM?
+
+			*private double totalCashAtATM;
+
+		b) procedural abstraction
+			hiding some functions which are present 
+			in the ATM, and not used by the user ever
+
+			security camera recording
+			logging
+			cash book maintenance
+
+			*private void maintainCashRecord() { }
+
+		c) class abstraction
+			hiding a complete unit of data+functions
+			*private class Security { }
+
+	class ATM
+	{
+data		private double totalCashAtATM;
+		private long totalCustomerHitTillDate;
+function	private void maintainCashRecords() { .....  }
+class		private class Security {data+ functions }
+		public double cashToDispense;
+
+		public void dispenseCash() {
+			totalCAshAtATM-=cashToDispense;
+		 } <-- available to the user
+		public void withdraw(double amt)
+		{
+			cashToDispense = amt;
+		}
+	}
+
+
+	2. Encapsulation
+		- it is the "how is it?" part of an object
+		- how is the ATM dispensing the cash?
+		- it is the coding part of the complexity 
+
+			data encapsulation
+				- private data
+			
+		
+
+		
+
+
+	3. Polymorphism
+		ctrl + C = copy
+		ctrl + C = cancel
+		ctrl + C = interrupt
+
+		poly = many
+		morphism = acquiring forms
+
+		formless => the form
+
+		a. class extension
+
+				Doctor
+				|MBBS,MD
+			----------------
+			|
+			Surgeon
+			|cut(){}
+			|stitch(){}
+		------------------------------------
+		|		|		|
+	HeartSurgeon		NeuroSurgeon	OrthoSurgeon
+	doOpenHeartSurgery()  doNeuroSurgery()   doBoneSurgery(){}
+
+
+		b. function overloading
+			to write multiple functions with same name
+			but differentiated on the following temrs
+
+			i) by type of argument
+			ii) by number of arguments
+			iii) by seqeunce of type of arguments
+
+		c. function overriding
+			to redefine a function in the child class
+			which is already defined by its parent class
+
+
+		d. operator overloading
+
+
+
+	4. Inheritance
+		ability of a business entity to acquire properties
+		from the existing entities
+
+		class A
+		|isA
+		class B extends A
+		|isA
+		class C extends B
+
+		A is A
+		--------
+		B is B
+		B is A
+		---------
+		C is C
+		C is B
+		C is A
+		--------	
+				Inheritance
+				|
+		--------------------------------
+		|				|
+		Derivation		Implementation
+
+		A <-concrete		A <-- abstract/interface I1  I2
+		|			|			 |   |
+		B <-concrete		B			 -----
+								 |
+
+		mind = disturbing frequency= intangible = information
+  		|
+	<--------------->
+	|	X	|
+	past	|	future
+	|    present	    |
+    good|bad		good|bad
+
++
+body <-- oracle company here
+
+
+
+
+
+water dew <-- eye
+|
+H2O - water molecule
+|
+H atom H + O atom
+|
+proton + neutron + electron
+|
+subatomic world - Dr. Bruce Lipton
+			1lakh x zoom
+boson/lepton
+string theory
+|
+
+vibrations | frequency 
+
+	gold  alm  copper  zinc  
+
+
+
+thoughts = thoughtrons
+								 B
+feelings are the main indicators
+
+thoughtrons
+|
+lifetrons
+
+	The Autobiography of a Yogi
+
+
+	body
+	mind			- iccha shakti [ desire ]
+	buddhi - intellect	- gyana shakti
+	atma			- atma shakti
+	
+
+take a paper + pen
+
+	1. using ur right hand draw number 6 on the paper
+		[ anti clock pattern is used to draw 6 ]
+
+	2. using ur right leg toe, draw circle on the floor
+		in clockwise
+
+	3. do the 1 and 2 at the same time
 
 
 
 
 
 
- 
+	5. Object communication
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Constructors
+==============
+
+
+	class A { }
+
+			above class has a default constructor
+
+	---------------------------
+
+
+	class B {
+		B() { }
+	}
+		above class DOES NOT have a default constructor
+
+		it is known as explicit no-arg constructor
+
+	-----------
+	EATHER U CAN HAVE EXPLICIT OR IMPLICIT CTOR , BUT NOT BOTH
+	-----------------------------------
+	every class has a super(); as 
+	default first line in its any constructor
+	--------------------
+
+	class Person 
+	{
+	}
+	class Student extends Person
+	{
+	}
+in above case Student's default ctor is invoking Person's default ctor
+	-----------------	
+	class Person
+	{
+		Person(int a) { }
+	}
+
+	class Student
+	{
+	}
+		the Student's default ctor is searching for a
+		default ctor in Person ( which is not there )
+	------------------------------
+
+	class Person
+	{
+		Person(int a) { }
+	}
+
+	class Student
+	{
+		Student(int x,int y)
+		{
+			super(x);
+		}
+	}
+		the Student's explicit ctor is searching for a
+		parameterized ctor in Person ( which is there )
+	------------------------------
+
+
+
+	
+
+
+abstract classes
+------------------
+
+	- abstract class may have abstract / non -abstract methods
+
+
+	- abstract|incomplete|partial contract of a class
+
+
+		
+ 		abstract
+		  |
+	-------------------------
+	|			|
+	class			method
+	|			   |
+abstract class BankAccount	abstract class God 
+{				{
+	data				
+	+				abstract void bless();
+	function
+}				}
+				|
+			------------------------------
+			|		|	   |	   
+			Krishna		Jesus	  Buddha
+			bless(){}	bless(){}  bless(){}
+
+
+	
+
+Interfaces 
+		= pure partial contract of a class
+
+		it must have abstract methods
+
+		default access specifier is public
+
+
+	
+			Animal
+			|
+	--------------------------------------------------
+	|		 |				|
+	Mammal		Fish				Bird
+	|		|				|
+ ------------------+	------------------		-----------------
+ |		   |	|     |		|		|		|
+Tiger		  Bat	Whale Dolphin	SwordFish 	Parrot		Sparrow
+
+
+		A
+		|
+		B  single level
+
+		A
+		|
+		B
+		|
+		C   multi level
+
+			<--interfaces-->
+		A	B	    C
+		|class	|	    |
+		---------------------
+		        |
+			D
+
+		class A { }
+		interface B { }
+		interface C { }
+		
+		class D extends A implements B, C
+		{
+		}
+
+		D is D
+		D is A
+		D is B
+		D is C
+
+
+
+
+
+
+		
+Every class / interface /array are children of java.lang.Object class
+
+
+		Object 
+		|
+		| Reactive
+		|  |react();
+		|  |
+		Person
+		| react(){}
+		|
+		|  Responsive
+		|   | respond();
+		Student
+		|
+		| Working 
+		|  | work();
+		Employee
+		|
+		| Executing
+		|  | execute();
+		Executive
+		|
+		| Managing
+		| | manage();
+		Manager
+		|
+		| Directing 
+		|  | direct();
+		Director
+
+
+
+
+
+
+
+
 
 
 
