@@ -608,7 +608,24 @@ Every class / interface /array are children of java.lang.Object class
 
 
 
+				     Instrument <--interface
+					|use();
+			-------------------------------------
+			|				|
+			Musical				Medical <--interfaces
+			|playMusic()			|opearte()
+	-----------------------------	---------------------------------
+	|			|	|			|
+	StringBased	  AirBased	SurgicalMedical	PathologicalMedical <--abstract series
+	|tuneString();	    |blowAir();	|steralize();		|readIt();
+	|		    |		|			|
+	Guitar		    Flute	SurgicalCutter		ECGMAchine <---- general / concete classes
+	pluck();   operateSevenHoles();	   cut();		  plotCardio();
 
+		Instrument i = new Guitar(); <-- String Based
+		Instrument i = new Flute();  <-- Air Based
+		Instrument i = new SurgicalCutter(); <-- Surgical Medical
+		Instrument i = new ECGMachine(); <-- Pathological Medical
 
 
 
