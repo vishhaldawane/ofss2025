@@ -1,4 +1,8 @@
+Oracle-weblogic
+Ibm-WebSphere
+Redhat-Jboss
 
+Spring container <==
 
 
 
@@ -26,7 +30,193 @@ Jdbc			Stateless   Stateful	BMP	CMP	SMS	Mail
 						bean	Hibernate/JPA/EclipseLink
 						managed
 						persistence [ store the object state on teh DB ]
-			bookmyshow.com
+	
+
+					Object [ RAM ]
+					|private data [ safe with JVM ]
+					| sandbox
+			---------------------------------
+				|
+			save this
+			object in a non-volatile memory			
+				|
+		------------------------------
+		|			|
+		FILE			DBMS [ table ]
+		|			|
+		|			-------------------
+		|			|		|
+	Serialization			JDBC		Persistence
+		|			|		storing the java object 
+		|			Programmer	as a ROW/record
+	ObjectOutputStream		is involved		|
+	ObjectInputStream		to write/develop	CMP
+					the queries
+					|
+					BMP
+	
+			Table
+		DEPT
+		deptno	dname	 loc
+		10	ACC	 NY
+		20	SALES	 NJ
+		30	PURCHASE NP
+
+	class is not a table, table is not a class
+
+		ORM
+	Bean / POJO
+	class Department { 
+		int departmentNumber;
+		String departmentName;
+		String departmentLocation;
+			set/get
+	}
+
+	Department dept = new Department(40,"QMS","NM");
+
+
+	HSQLDB	23 year old db written Java language
+
+		11 MB
+
+	----------------------------------	
+	JDBC Steps
+	----------
+
+
+		JAva				Database
+		| BL				| DL
+		| int				| number
+		| String			| varchar2(20)
+		| LocalDate			| date
+		+--------------Driver ----------+
+		1party				2party
+				3rd party
+
+		Oracle				Oracle
+						HSQLDB
+						MS-SQL server 
+						MySQL
+						PostG
+						MariaDB
+						Sybase
+						HANA
+						MongoDB	
+
+
+				Driver
+				|   - to transport the data
+				|  1. decide the database
+				|  2. know your database driver
+				|     and download it
+				|	     |
+				|	------------
+				|	|	   |
+				|   make a 	make a 
+				|  java project  maven project
+				| [ manually		automate
+				| resolve the		the dependencies
+				| dependencies]		via pom.xml
+			DriverManager
+			|3. connect to the db
+			|
+			Connection
+				|4. acquire teh connection
+				|
+			-----------------------------------
+			|		|		|
+		Statement	PreparedStatement	CallableStatement
+		5. decide	    5 . decide		5. decide
+			your query
+		SELECT		 INSERT/UPDATE/DELETE	stored procedure/fuction
+
+
+
+
+	
+
+
+-----------------------------------------
+
+
+	1. create a maven project
+
+	2. pom.xml file is created
+
+	3. declare the project dependencies in the pom.xml file
+
+
+			MyEclipseLinkJPA
+				|
+				|
+		-----------------------------------
+		|				|
+		src				pom.xml
+		|				|
+	----------------			specify the dependencies here
+	|		|			eg, Oracle Driver, Junit Classes
+	main		test			Spring, hibernate, Hsqldb,eclipselink
+	|		 |			
+-----------------	java<-- test cases using JUNIT [ testing framework ]
+|		|
+java		resources
+|			|
+*.class		project specific settings in few files
+|			|
+POJO			META-INF
+			|
+			persistence.xml
+
+
+	Steps to persist an object in JPA
+	-----------------------------------
+	1. make a maven project
+	2. declare dependencies in pom.xml
+	3. setup META-INF\persistence.xml 
+		[ it will mention the Jpa Provider, driver, url, username, password ]
+	4. create a POJO/Bean, e.g.
+		class Department { }
+
+	5. mark it with required annotations
+	6. Write a code to connect to EclipseLink JPA framework
+	7. create your object to persist it there
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		bookmyshow.com
 			makemytrip.com
 			amazon.com
 			|
@@ -617,7 +807,7 @@ Every class / interface /array are children of java.lang.Object class
 	-----------------------------	---------------------------------
 	|			|	|			|
 	StringBased	  AirBased	SurgicalMedical	PathologicalMedical <--abstract series
-	|tuneString();	    |blowAir();	|steralize();		|readIt();
+	|tuneString();	    |blowAir();	|sterilize();		|readIt();
 	|		    |		|			|
 	Guitar		    Flute	SurgicalCutter		ECGMAchine <---- general / concete classes
 	pluck();   operateSevenHoles();	   cut();		  plotCardio();
@@ -628,14 +818,182 @@ Every class / interface /array are children of java.lang.Object class
 		Instrument i = new ECGMachine(); <-- Pathological Medical
 
 
+	In C++
+	
+	call by value		call by address		call by reference
+	
+	a=10, b=20		a=10,b=20		a=10,b=20
+	swap(a,b);		swap(&a,&b);		fun(a,b);
 
+	swap(int x,int y)	swap(int *p1,int *p2)	swap(int &x, int &b)
+	{			{			{
+	}x,y wont reflect	}p1,p2 will update a,b	}x,y will update a,b
 
-
-
-
-
+Generics and Collections
+-------------------------
 
 	
+	Call By Value
+
+	
+	Component Orthogonal Space
+
+
+				x <--- data type, int
+				| FruitJuice
+				| Noodles*		
+				| FriedRice
+				| Pickle
+				| CoconutWater
+				| SoftDrink [ Sprite ]
+				| Wine
+				| BankAccount, SavingsAccoung
+				| CurrentAccount, LoanAccount
+				| Vehicle, HomeLoan,Applicant
+				| Customer
+		-------------------------------------
+		|		|		|
+		y		i		z
+		|		|		|
+		container<-->iterator		algorithm
+		|		|		|
+		array	      array		array
+		|		|		|
+	  Collection<--interface		Collections<--class
+		|				
+	-------------
+	|	|
+	List	Set<--interfaces
+	|	|
+ArrayList	TreeSet
+  LinkedList      HashSet
+
+	int score[50]	   for loop		search, sort, etc
+	  JuiceGlass		Straw		drink()	
+	    Bowl*		ChopStiks*	gulp()*
+	   Plate		Spoon		eat()
+	    Jar			PickleFork	lick()
+	Coconut			Straw		drink()
+	Bottle			Straw		drink()
+	  Y-ShapeGlass		-		
+
+
+
+				
+
+
+
+
+
+
+	ArrayList 
+	 - growable at the end
+	 - duplicates allowed
+
+		PlayList in VLC media player
+		
+	Logs 
+
+	+-------+
+     0	|	|
+ 	+-------+
+     1	|	|
+	+-------+
+     2	|	|
+	+-------+
+     3	|	|
+
+            ^
+	   /|\
+	    |
+
+	efficient in search
+	efficient in append
+	less efficient in insert in between
+	
+	-----------------
+
+	Linked Link
+
+	+-------+	+-------+	+-------+
+	|      2|------>|	|------>|	|
+	|      0|	|	|	|	|
+	|      0|<------|	|<------|	|
+	+-------+	+-------+	+-------+
+	100		200		300
+
+	less efficient in search
+	flexible in DML
+
+	PhoneBook
+
+	-----------------
+	Set  = unique data | no duplicates allowed
+	TreeSet
+
+				root
+				|50
+		---------------------------------
+		|40				|60
+	----------------		----------------
+	|20		| 45	      55|		|75
+  ----------	  -----------	   ----------	   ------------	
+  |         |     |         |      |        |      |         |
+  10        39    42        48     52       57     72        80
+
+
+	numerical set
+	Chemical Elements from the periodic table
+
+	----------------------
+
+	HashSet
+		
+		+-----------------------+
+		|  Science	|Comics	|
+		|		|	|
+		|		|	|
+		+-----------------------+
+		|Spi	| Fictions	|
+		|	|		|
+		+-----------------------+
+		| Encyclopedia	|Novels	|
+		|		|	|
+		+-----------------------+
+	
+
+
+	1. download oracle from the site
+		https://www.oracle.com/database/technologies/xe-prior-release-downloads.html#license-lightbox
+
+	2. extract it 
+
+	3. run setup.exe as admin or your scope 
+
+	4. go thru the wizard
+
+	5. after installation, open the sql command line client from windows search
+
+	6. SQL> connect /as sysdba
+	
+	7. SQL> create user scott identified by tiger
+
+	8. SQL> grant all privileges to scott;
+
+	9. SQL> connect scott/tiger
+
+
+	10. goto the https://github.com/vishhaldawane/Get940/blob/main/demo.txt
+	
+	11. paste the table creation demo.txt's code at this prompt
+
+	12. SQL> select * from dept
+
+
+
+
+
+
 
 
 
