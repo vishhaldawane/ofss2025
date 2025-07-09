@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,6 +42,39 @@ public class BankController {
 			}
 		}
 		return new ResponseEntity(HttpStatus.NOT_FOUND).ok("SavingsAccount not found");
+	}
+	
+	@PostMapping("/add") // http://localhost:8090/bank/add
+	ResponseEntity<?> addSingleAccount(@RequestBody SavingsAccount newSavAcc) {
+		for(SavingsAccount savAcc : list) {
+			if(savAcc.getAccountNumber() == newSavAcc.getAccountNumber()) {
+				return new ResponseEntity(HttpStatus.NOT_FOUND).ok("SavingsAccount Already Exists : "+newSavAcc.getAccountNumber());
+			}
+		}
+		list.add(newSavAcc);
+		MyResponse response = 
+				new MyResponse(newSavAcc, "Savings Account Object Created...");
+		return new ResponseEntity(HttpStatus.CREATED).ok(response);
+			
+	}
+	
+	@PutMapping("/update") // http://localhost:8090/bank/update
+	ResponseEntity<?> updateSingleAccount(@RequestBody SavingsAccount savAccToUpdate) {
+		for(SavingsAccount savAcc : list) {
+			if(savAcc.getAccountNumber() == savAccToUpdate.getAccountNumber()) {
+				list.remove(savAcc);
+				list.add(savAccToUpdate);
+				MyResponse response = 
+						new MyResponse(savAccToUpdate, "Savings Account Object Modified...");
+
+				return new ResponseEntity(HttpStatus.ACCEPTED).ok("SavingsAccount modified");
+				
+			}
+		}
+		MyResponse response = 
+				new MyResponse(savAccToUpdate, "Savings Account Object Not Found...");
+
+		return new ResponseEntity(HttpStatus.NOT_FOUND).ok("SavingsAccount Does Not Exists : "+savAccToUpdate.getAccountNumber());
 	}
 	
 	@GetMapping("/") // localhost:8090/bank/
