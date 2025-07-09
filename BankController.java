@@ -67,14 +67,14 @@ public class BankController {
 				MyResponse response = 
 						new MyResponse(savAccToUpdate, "Savings Account Object Modified...");
 
-				return new ResponseEntity(HttpStatus.ACCEPTED).ok("SavingsAccount modified");
+				return new ResponseEntity(HttpStatus.ACCEPTED).ok(response);
 				
 			}
 		}
-		MyResponse response = 
-				new MyResponse(savAccToUpdate, "Savings Account Object Not Found...");
+		MyResponse response2 = 
+				new MyResponse(savAccToUpdate, "Savings Account Object Not Found..."+savAccToUpdate.getAccountNumber());
 
-		return new ResponseEntity(HttpStatus.NOT_FOUND).ok("SavingsAccount Does Not Exists : "+savAccToUpdate.getAccountNumber());
+		return new ResponseEntity(HttpStatus.NOT_FOUND).ok(response2);
 	}
 	
 	@GetMapping("/") // localhost:8090/bank/
