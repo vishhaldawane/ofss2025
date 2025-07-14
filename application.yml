@@ -1,0 +1,50 @@
+server:
+  port: 9000
+  
+#spring.main.web-application-type=reactive
+spring:
+  application:
+    name: CINEMA-GATEWAY
+  cloud:
+    gateway:
+      routes:
+      - id: DIRECTOR-SERVICE
+        uri: http://localhost:8081
+        predicates: 
+          - Path=/director/**
+        filters:
+          - name: CircuitBreaker
+            args:
+              name: DIRECTOR-SERVICE
+              fallbackuri: forward:/directorFallback
+
+      - id: MOVIE-SERVICE
+        uri: http://localhost:8082
+        predicates: 
+          - Path=/movie/**
+        filters:
+          - name: CircuitBreaker
+            args:
+              name: MOVIE-SERVICE
+              fallbackuri: forward:/movieFallback
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default: 
+        register-health-indicator: true
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 5s
+              
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+    
+         
